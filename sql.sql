@@ -1,9 +1,46 @@
+<<<<<<< HEAD
+CREATE TABLE `Timeslot` (
+  `TimeslotId` int,
+  `StaffId` int,
+  `GroupId` int,
+  `CourseId` int,
+  `Date` TIMESTAMP,
+  PRIMARY KEY (`TimeslotId`),
+  KEY `FK` (`StaffId`, `GroupId`, `CourseId`),
+  CONSTRAINT `fk_Staff_Timeslot` FOREIGN KEY (`StaffId`) REFERENCES `Staff` (`StaffID`),
+  CONSTRAINT `fk_Group_Timeslot` FOREIGN KEY (`GroupId`) REFERENCES `Group` (`GroupID`),
+  CONSTRAINT `fk_Course_Timeslot` FOREIGN KEY (`CourseId`) REFERENCES `Course` (`CourseID`)
+);
+=======
+>>>>>>> a0f0c0545a66d96a89d3c4ff7c39f15dcac99c10
 
 CREATE TABLE `Group` (
   `GroupId` int,
-  PRIMARY KEY (`GroupId`)
+  PRIMARY KEY (`GroupId`),
+  
 );
 
+<<<<<<< HEAD
+CREATE TABLE `Course` (
+  `CourseId` int,
+  `FeeId` int,
+  `CourseName` varchar(255),
+  PRIMARY KEY (`CourseId`),
+  KEY `FK` (`FeeId`),
+  CONSTRAINT `fk_Fee_Course` FOREIGN KEY (`FeeId`) REFERENCES `Fee` (`FeeId`)
+);
+
+CREATE TABLE `Invoice` (
+  `Invoiceid` int,
+  `CustomerId` int,
+  `FeeId` int,
+  `Date` TIMESTAMP,
+  PRIMARY KEY (`Invoiceid`),
+  KEY `FK` (`CustomerId`, `FeeId`)
+);
+
+=======
+>>>>>>> a0f0c0545a66d96a89d3c4ff7c39f15dcac99c10
 CREATE TABLE `Product` (
   `ProductId` int,
   `ProductName` varchar(50),
@@ -48,6 +85,18 @@ CREATE TABLE `Fee` (
   PRIMARY KEY (`FeeId`)
 );
 
+<<<<<<< HEAD
+CREATE TABLE `Enrolment` (
+  `EnrolementId` int,
+  `CustomerId` int,
+  `TimetableId` int,
+  `GroupId` int,
+  PRIMARY KEY (`EnrolementId`),
+  KEY `FK` (`CustomerId`, `TimetableId`, `GroupId`),
+  CONSTRAINT `fk_group_enrolment` FOREIGN KEY (`GroupId`) REFERENCES `Group` (`GroupId`),
+  CONSTRAINT `fk_Customer_Enrolment` FOREIGN KEY (`CustomerId`) REFERENCES `Customer` (`CustomerId`),
+  CONSTRAINT `fk_Timetable_Enrolment` FOREIGN KEY (`TimetableId`) REFERENCES `Timetable` (`TimetableID`)
+=======
 CREATE TABLE `Course` (
   `CourseId` int,
   `FeeId` int,
@@ -55,6 +104,7 @@ CREATE TABLE `Course` (
   PRIMARY KEY (`CourseId`),
   KEY `FK` (`FeeId`),
   CONSTRAINT `fk_Fee_Course` FOREIGN KEY (`FeeId`) REFERENCES `Fee` (`FeeId`)
+>>>>>>> a0f0c0545a66d96a89d3c4ff7c39f15dcac99c10
 );
 
 
