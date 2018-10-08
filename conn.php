@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
+$servername = "shoto.ckpy4rd4qu8g.ap-southeast-2.rds.amazonaws.com";
 $username = "root";
-$password = "";
+$password = "xqaVGD9Sz1fsiGbbjkH69ArnO6wJ0dmb";
 $db = "shoto";
 
 
@@ -13,4 +13,3 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 echo "Connected successfully";
-    
