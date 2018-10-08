@@ -1,7 +1,7 @@
 <?php
-$servername = "shoto.ckpy4rd4qu8g.ap-southeast-2.rds.amazonaws.com";
+$servername = "localhost";
 $username = "root";
-$password = "xqaVGD9Sz1fsiGbbjkH69ArnO6wJ0dmb";
+$password = "";
 $db = "shoto";
 
 

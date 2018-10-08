@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 CREATE TABLE `Timeslot` (
   `TimeslotId` int,
   `StaffId` int,
@@ -11,8 +10,6 @@ CREATE TABLE `Timeslot` (
   CONSTRAINT `fk_Group_Timeslot` FOREIGN KEY (`GroupId`) REFERENCES `Group` (`GroupID`),
   CONSTRAINT `fk_Course_Timeslot` FOREIGN KEY (`CourseId`) REFERENCES `Course` (`CourseID`)
 );
-=======
->>>>>>> a0f0c0545a66d96a89d3c4ff7c39f15dcac99c10
 
 CREATE TABLE `Group` (
   `GroupId` int,
@@ -20,7 +17,6 @@ CREATE TABLE `Group` (
   
 );
 
-<<<<<<< HEAD
 CREATE TABLE `Course` (
   `CourseId` int,
   `FeeId` int,
@@ -39,8 +35,6 @@ CREATE TABLE `Invoice` (
   KEY `FK` (`CustomerId`, `FeeId`)
 );
 
-=======
->>>>>>> a0f0c0545a66d96a89d3c4ff7c39f15dcac99c10
 CREATE TABLE `Product` (
   `ProductId` int,
   `ProductName` varchar(50),
@@ -85,7 +79,6 @@ CREATE TABLE `Fee` (
   PRIMARY KEY (`FeeId`)
 );
 
-<<<<<<< HEAD
 CREATE TABLE `Enrolment` (
   `EnrolementId` int,
   `CustomerId` int,
@@ -96,15 +89,6 @@ CREATE TABLE `Enrolment` (
   CONSTRAINT `fk_group_enrolment` FOREIGN KEY (`GroupId`) REFERENCES `Group` (`GroupId`),
   CONSTRAINT `fk_Customer_Enrolment` FOREIGN KEY (`CustomerId`) REFERENCES `Customer` (`CustomerId`),
   CONSTRAINT `fk_Timetable_Enrolment` FOREIGN KEY (`TimetableId`) REFERENCES `Timetable` (`TimetableID`)
-=======
-CREATE TABLE `Course` (
-  `CourseId` int,
-  `FeeId` int,
-  `CourseName` varchar(255),
-  PRIMARY KEY (`CourseId`),
-  KEY `FK` (`FeeId`),
-  CONSTRAINT `fk_Fee_Course` FOREIGN KEY (`FeeId`) REFERENCES `Fee` (`FeeId`)
->>>>>>> a0f0c0545a66d96a89d3c4ff7c39f15dcac99c10
 );
 
 
