@@ -1,5 +1,6 @@
-<?php include('inc/head.php'); ?>
-    
+<?php include('inc/head.php');
+require_once('conn.php');
+?>
     <div class="container">
         <div class="buttons">
             <button>Populate database</button>
