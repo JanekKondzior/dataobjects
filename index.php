@@ -6,8 +6,8 @@ include('expences.php');
  ?>
     
 
-require_once('conn.php');
-?>
+
+
 
     <div class="container">
         <div class="buttons">
