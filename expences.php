@@ -1,7 +1,15 @@
 <?php
 if(isset($_POST['expences'])){
 
-$query="";
+$query="SELECT ((SELECT SUM(position.Salary) from position,staff WHERE staff.PositionId=position.PositionId)
+        
++
+
+(SELECT SUM(product.Price*supplierorder.Qty)
+FROM product,supplierorder
+WHERE product.ProductId=supplierorder.ProductId)) AS Expences;";
+
+
 
 $result=mysqli_query($conn,$query);
 
@@ -17,9 +25,8 @@ mysqli_close($conn);
 
 foreach($members as $member) :
 
-    echo $member['FirstName'];
-    echo " ";
-    echo $member['LastName'];
+    echo $member['Expences'];
+    
 
 endforeach;
 }
