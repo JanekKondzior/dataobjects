@@ -16,7 +16,7 @@ if(isset($_POST['income'])){
     $result=mysqli_query($conn,$query);
 
     $rowCount = mysqli_num_rows($result);
-
+    
     for($i=0;$i<$rowCount;$i++){
         $members[$i]=mysqli_fetch_array($result, MYSQLI_ASSOC);
     }
