@@ -50,25 +50,35 @@ tr:nth-child(even) {
     WHERE FeeId = (SELECT FeeID
     FROM INVOICE
     WHERE DATE > '$date')";
+    $studentFee = 0;
     $results = mysqli_query($conn, $feeQuery);
-    while($row = mysqli_fetch_array($results))
+    while($row = mysqli_fetch_assoc($results))
     {
-        echo $row['Total'];
+        echo $row["Total"];
+        $studentFee = $row["Total"];
     }
+    $total = (int)$row["total"];
 ?>
     </tr>
     <tr>
         <td>Sales</td>
         <td><?php
-    $feeQuery = "SELECT SUM(Product.Price * SupplierOrder.Qty) as ASDA
-    FROM Product, SupplierOrder, `Order`
-    WHERE SupplierOrder.ProductID = Product.ProductId
-    AND SupplierOrder.OrderID = `Order`.OrderId
-    AND `Order`.Date > '$date'";
-    $results = mysqli_query($conn, $feeQuery);
-    echo $feeQuery; 
-    while($row = mysqli_fetch_array($results)) {
-        echo $row['ASDA'];
+    $salesQuery = "	SELECT SUM(Product.Price * `productorder`.Qty) AS 'asd' FROM Product, `productorder`, Invoice WHERE `productorder`.ProductID = Product.ProductId AND `productorder`.InvoiceId = Invoice.InvoiceId AND Invoice.Date > '$date'";
+    $resultsTwo = mysqli_query($conn, $salesQuery);
+    $salesFee = 0;
+    while($row = mysqli_fetch_assoc($resultsTwo))
+    {
+        echo $row['asd'];
+        $salesFee = $row['asd'];
+
     }
-?>
+?>    
 </td>
+</tr>
+<tr>
+    <td> Total </td>
+    <td><?php
+        echo $salesFee + $studentFee;
+        ?>
+        </td>
+</tr>
