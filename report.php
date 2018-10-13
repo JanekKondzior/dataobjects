@@ -6,6 +6,8 @@
         include('expences.php');
         if(isset($_GET["date"])){
             $date = $_GET["date"];
+        }else{
+            $date = date('y-m-d');
         }
 ?>
 <style>
@@ -76,9 +78,35 @@ tr:nth-child(even) {
 </td>
 </tr>
 <tr>
-    <td> Total </td>
+    <td> <b>Total</b> </td>
     <td><?php
         echo $salesFee + $studentFee;
         ?>
         </td>
 </tr>
+<tr>
+        <th>Expences</th>
+        <th>$</th>
+    </tr>
+    <tr>
+        <td>
+            Rent
+        </td>
+        <td>
+            10000
+        </td>
+    <tr>
+        <td>
+            Equipment
+        </td>
+        <td>
+            5000
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <b>Total</b>
+        </td>
+        <td>
+            15000
+        </td>
