@@ -23,12 +23,17 @@ if(isset($_POST['expences'])){
 
     mysqli_close($conn);
 
+    echo "<ul>";
+
     foreach($members as $member) :
 
+        echo"<li>";
         echo $member['Expences'];
-        
+        echo"</li>";
 
     endforeach;
+    
+    echo "</ul>";
     }
 
 ?>
