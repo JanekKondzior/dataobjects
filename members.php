@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['members'])){
 
-    $query="select customer.FirstName,customer.LastName from customer,parents,member where (customer.ParentId=parents.ParentID)AND(parents.ParentID=member.ParentID)";
+    $query="select * from member where customerId IS NOT NULL";
 
 
 
