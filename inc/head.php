@@ -14,8 +14,8 @@
     <nav>
         <ul>
             <li><a href="index.php">Queries</a></li>
-            <li><a href="form.php">Form</a></li>
-            <li><a href="report.php">Report</a></li>
+            <li><a href="form.php">Forms</a></li>
+            <li><a href="report.php">Reports</a></li>
         </ul>
     </nav>
     <h1>Shoto Karate Database Controller</h1>
