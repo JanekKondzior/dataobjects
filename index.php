@@ -1,8 +1,9 @@
-<?php include('inc/head.php');
-include('conn.php');
-include('members.php');
-include('income.php');
-include('expences.php');
+<?php 
+    include('inc/head.php');
+    include('conn.php');
+    include('members.php');
+    include('income.php');
+    include('expences.php');
  ?>
     
 
