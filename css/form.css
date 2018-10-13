@@ -1,0 +1,26 @@
+#enrollmentForm{
+
+    width: 25%;
+    margin : 0 auto;
+}
+
+#enrollmentForm label{
+    display: block;
+}
+
+#enrollmentForm div{
+    padding-bottom: 15px;
+}
+
+#enrollmentForm input{
+    padding: 8px;
+    width: 100%;
+    resize: none;
+}
+
+#enrollmentForm .button{
+    background-color: black;
+    color: white;
+    width: 25%;
+    height: 30px;
+}
