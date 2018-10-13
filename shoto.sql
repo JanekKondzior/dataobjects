@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.1
+-- version 4.8.2
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 11, 2018 at 06:36 AM
--- Server version: 10.1.33-MariaDB
--- PHP Version: 7.2.6
+-- Generation Time: Oct 13, 2018 at 08:37 AM
+-- Server version: 10.1.34-MariaDB
+-- PHP Version: 7.2.7
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,19 +41,16 @@ CREATE TABLE `course` (
 --
 
 CREATE TABLE `customer` (
-  `CustomerId` int(11) NOT NULL,
-  `ParentId` int(11) DEFAULT NULL,
-  `FirstName` varchar(30) DEFAULT NULL,
-  `LastName` varchar(30) DEFAULT NULL
+  `CustomerId` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `customer`
 --
 
-INSERT INTO `customer` (`CustomerId`, `ParentId`, `FirstName`, `LastName`) VALUES
-(1, 1, 'John', 'Doe'),
-(2, 2, 'Roger', 'Davidson');
+INSERT INTO `customer` (`CustomerId`) VALUES
+(1),
+(2);
 
 -- --------------------------------------------------------
 
@@ -63,7 +60,7 @@ INSERT INTO `customer` (`CustomerId`, `ParentId`, `FirstName`, `LastName`) VALUE
 
 CREATE TABLE `enrolment` (
   `EnrolementId` int(11) NOT NULL,
-  `CustomerId` int(11) DEFAULT NULL,
+  `MemberId` int(11) DEFAULT NULL,
   `TimetableId` int(11) DEFAULT NULL,
   `GroupId` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -123,18 +120,24 @@ INSERT INTO `invoice` (`Invoiceid`, `CustomerId`, `FeeId`, `Date`) VALUES
 --
 
 CREATE TABLE `member` (
-  `MemberId` int(11) DEFAULT NULL,
-  `ParentID` int(11) DEFAULT NULL,
-  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
+  `MemberId` int(11) NOT NULL,
+  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `CustomerId` int(11) NOT NULL,
+  `FirstName` varchar(30) NOT NULL,
+  `LastName` varchar(30) NOT NULL,
+  `ParFirstName` varchar(30) NOT NULL,
+  `ParLastName` varchar(30) NOT NULL,
+  `ParContact` int(10) NOT NULL,
+  `ContactNo` int(10) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`MemberId`, `ParentID`, `Date`) VALUES
-(1, 1, '2018-10-10 03:37:26'),
-(2, 2, '2018-10-10 03:46:41');
+INSERT INTO `member` (`MemberId`, `Date`, `CustomerId`, `FirstName`, `LastName`, `ParFirstName`, `ParLastName`, `ParContact`, `ContactNo`) VALUES
+(3, '2018-10-13 06:35:33', 0, 'John', 'Doe', 'Old ', 'Mate', 0, 0),
+(4, '2018-10-13 06:35:44', 0, 'John', 'comp', '', '', 0, 0);
 
 -- --------------------------------------------------------
 
@@ -147,26 +150,6 @@ CREATE TABLE `order` (
   `StaffId` int(11) DEFAULT NULL,
   `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `parents`
---
-
-CREATE TABLE `parents` (
-  `ParentID` int(11) NOT NULL,
-  `FirstName` varchar(30) DEFAULT NULL,
-  `LastName` varchar(30) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `parents`
---
-
-INSERT INTO `parents` (`ParentID`, `FirstName`, `LastName`) VALUES
-(1, 'Isaac', 'Isafaggot'),
-(2, 'Will', 'Smith');
 
 -- --------------------------------------------------------
 
@@ -324,15 +307,14 @@ ALTER TABLE `course`
 -- Indexes for table `customer`
 --
 ALTER TABLE `customer`
-  ADD PRIMARY KEY (`CustomerId`),
-  ADD KEY `FK` (`ParentId`);
+  ADD PRIMARY KEY (`CustomerId`);
 
 --
 -- Indexes for table `enrolment`
 --
 ALTER TABLE `enrolment`
   ADD PRIMARY KEY (`EnrolementId`),
-  ADD KEY `FK` (`CustomerId`,`TimetableId`,`GroupId`);
+  ADD KEY `FK` (`MemberId`,`TimetableId`,`GroupId`);
 
 --
 -- Indexes for table `fee`
@@ -354,17 +336,17 @@ ALTER TABLE `invoice`
   ADD KEY `FK` (`CustomerId`,`FeeId`);
 
 --
+-- Indexes for table `member`
+--
+ALTER TABLE `member`
+  ADD PRIMARY KEY (`MemberId`);
+
+--
 -- Indexes for table `order`
 --
 ALTER TABLE `order`
   ADD PRIMARY KEY (`OrderId`),
   ADD KEY `FK` (`StaffId`);
-
---
--- Indexes for table `parents`
---
-ALTER TABLE `parents`
-  ADD PRIMARY KEY (`ParentID`);
 
 --
 -- Indexes for table `position`
@@ -417,6 +399,16 @@ ALTER TABLE `timeslot`
 ALTER TABLE `timetable`
   ADD PRIMARY KEY (`TimetableID`),
   ADD KEY `FK` (`StaffID`);
+
+--
+-- AUTO_INCREMENT for dumped tables
+--
+
+--
+-- AUTO_INCREMENT for table `member`
+--
+ALTER TABLE `member`
+  MODIFY `MemberId` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
