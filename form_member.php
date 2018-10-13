@@ -2,10 +2,12 @@
 
 <form action="" method="post">
     <div>
+        <!-- customer -->
         <label for="firstName">First Name</label>
         <input type="text" name="firstName">
     </div>
     <div>
+        <!-- customer -->
         <label for="lastName">Last Name</label>
         <input type="text" name="firstName">
     </div>
