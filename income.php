@@ -3,7 +3,7 @@
 if(isset($_POST['income'])){
 
 
-    $query=$query="
+    $query="
     SELECT (((SELECT SUM(productorder.Qty*product.Price) AS PRICE 
     FROM productorder,product
     WHERE productorder.ProductId=product.ProductId)*0.5)
