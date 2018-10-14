@@ -1,14 +1,14 @@
 CREATE TABLE `Class` (
   `Instructor` varchar(30),
-  `Group` varchar(30),
+  `Group` varchar(7),
   `ClassDay` varchar(30),
   KEY `CK` (`Instructor`, `Group`)
 );
 
 CREATE TABLE `Group` (
-  `GroupType` int(11),
-  `GroupFee` int(11),
-  `SessionTime` int(11),
+  `GroupType` varchar(7),
+  `GroupFee` int(3),
+  `SessionTime` date(11),
   PRIMARY KEY (`GroupType`)
 );
 
@@ -60,7 +60,7 @@ CREATE TABLE `Supplier` (
 
 CREATE TABLE `Enrolment` (
   `Student` int(11),
-  `Group` int(11),
+  `Group` varchar(7),
   KEY `CK` (`Student`, `Group`)
 );
 
@@ -109,7 +109,7 @@ CREATE TABLE `Grading` (
   `GradingID` int(11),
   `Instructor` int(11),
   `Student` int(11),
-  `Grade` int(11),
+  `Grade` varchar(30),
   `Belt` varchar(10),
   PRIMARY KEY (`GradingID`),
   KEY `FK` (`Instructor`, `Student`)
