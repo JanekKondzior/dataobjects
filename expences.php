@@ -1,17 +1,23 @@
 <?php
+
 if(isset($_POST['expences'])){
 
-    $query="SELECT ((SELECT SUM(position.Salary) from position,staff WHERE staff.PositionId=position.PositionId)
+    $query = "SELECT((SELECT SUM(position.PositionSalary) AS Expenses FROM position, staff WHERE staff.position = position.positionTitle) + (SELECT SUM(product.ProductPrice * supplierOrder.SupOrdQty) FROM product, supplierOrder
+    WHERE product.ProductId = supplierorder.ProductId)) AS Expences ;
+    ";
+
+
+    // $query="SELECT ((SELECT SUM(position.Salary) from position,staff WHERE staff.PositionId=position.PositionId)
             
-    +
+    // +
 
-    (SELECT SUM(product.Price*supplierorder.Qty)
-    FROM product,supplierorder
-    WHERE product.ProductId=supplierorder.ProductId)) AS Expences;";
+    // (SELECT SUM(product.Price*supplierorder.Qty)
+    // FROM product,supplierorder
+    // WHERE product.ProductId=supplierorder.ProductId)) AS Expences;";
 
 
 
-    $result=mysqli_query($conn,$query);
+    $result = mysqli_query($conn, $query);
 
     $rowCount = mysqli_num_rows($result);
 

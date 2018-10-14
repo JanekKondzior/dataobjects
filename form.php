@@ -1,9 +1,9 @@
 
 <?php
     include('inc/head.php');
-    include('conn.php');
+    require_once('conn.php');
     include('form_member.php');
-    // include('form_payment.php');
+    include('form_payment.php');
 
 ?>
 

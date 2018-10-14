@@ -3,15 +3,7 @@
 if(isset($_POST['income'])){
 
 
-    $query="
-    SELECT (((SELECT SUM(productorder.Qty*product.Price) AS PRICE 
-    FROM productorder,product
-    WHERE productorder.ProductId=product.ProductId)*0.5)
-
-            +
-
-    (SELECT SUM(Fee.fee)
-    from fee)) AS TOTAL";
+    $query="SELECT SUM(PaymentAmt) AS TOTAL from payment, invoice WHERE payment.PaymentID = invoice.PaymentID AND invoice.InvoiceDate >= '2017-09-01' AND invoice.InvoiceDate <= '2017-09-30' ";
 
     $result=mysqli_query($conn,$query);
 

@@ -1,7 +1,7 @@
 <?php
 if(isset($_POST['members'])){
 
-    $query="select * from member where customerId IS NOT NULL";
+    $query="select * from member where memberID IS NOT NULL";
 
 
 

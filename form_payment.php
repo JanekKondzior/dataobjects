@@ -1,17 +1,21 @@
 <?php
-
-$query="";
-
-$result=mysqli_query($conn,$query);
+require_once('conn.php');
+// List of fees query
+$query="SELECT * FROM `group`";
+$result=mysqli_query($conn, $query);
 $rowCount = mysqli_num_rows($result);
 for($i=0;$i<$rowCount;$i++){
-    $FeeList[$i]=mysqli_fetch_array($result, MYSQLI_ASSOC);
+    $feeList[$i]=mysqli_fetch_array($result, MYSQLI_ASSOC);
 }
 
-$query2="";
-$rowCount = mysqli_num_rows($result);
-for($i=0;$i<$rowCount;$i++){
-    $ProductList[$i]=mysqli_fetch_array($result, MYSQLI_ASSOC);
+// mysqli_fetch_all($r)
+
+// List of products
+$query2="select * from product";
+$result2 = mysqli_query($conn, $query2);
+$rowCount2 = mysqli_num_rows($result2);
+for($i=0;$i<$rowCount2;$i++){
+    $productList[$i]=mysqli_fetch_array($result2, MYSQLI_ASSOC);
 }
 
 ?>
@@ -20,16 +24,17 @@ for($i=0;$i<$rowCount;$i++){
 <form id="enrollmentForm" action="" method="post">
     <div>
       
-        <label for="CustID">Customer ID</label>
+        <label for="memberId">Member Id</label>
         <input type="text" name="custid" required>
     </div>
     <div>
+    <label for="">Fee</label>
         <select name="fee">
-        
+        <option value="0">0</option>
 <?php
-foreach($FeeList as $Fee) :
+foreach($feeList as $fee) :
     
-        echo "<option value=".$Fee.">".$Fee."</option>";
+        echo "<option value=".$fee['GroupFee'].">".$fee['GroupFee']."</option>";
         
     endforeach;
 ?>
@@ -40,16 +45,16 @@ foreach($FeeList as $Fee) :
 
     <label for="Product">Product</label>
     <select name="product">
-        
         <?php
-        foreach($ProductList as $product) :
+        foreach($productList as $product) :
             
-                echo "<option value=".$product.">".$product."</option>";
+                echo "<option value=".$product['ProductName'].">".$product['ProductName']."</option>";
                 
             endforeach;
         ?>
 
     </select>
+        <label for="qty">Qty</label>
         <select name="qty">
             <option value="1">1</option>
             <option value="2">2</option>
@@ -66,7 +71,19 @@ foreach($FeeList as $Fee) :
 
     </div>
     
-    <button class="button" type="submit" name="submit">Submit</button>
+    <button class="button" type="submit" name="submit2">Submit</button>
     <button class="button" type="reset">Clear</button>
 </form>
 
+<?php
+    if(isset($_POST['submit2'])){
+        $memberId = mysqli_real_escape_string($conn, $_POST['memberId']);
+        $fee = mysqli_real_escape_string($conn, $_POST['fee']);
+        $product = mysqli_real_escape_string($conn, $_POST['product']);
+        $qty = mysqli_real_escape_string($conn, $_POST['qty']);
+        $query = "INSERT INTO member(FirstName, LastName, ParFirstName, ParLastName, ParContact, ContactNo) VALUES ('$firstName', '$lastName', '$parentFirst', '$parentLast', '$parentNo', '$contactNo');";
+
+
+
+    }
+?>
