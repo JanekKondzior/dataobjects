@@ -2,12 +2,8 @@
 <?php
     include('inc/head.php');
     include('conn.php');
-    if(isset($_POST['enrolment'])){
     include('form_member.php');
-    }
-    if(isset($_POST['payment'])){
-    include('form_payment.php');
-    }
+    // include('form_payment.php');
 
 ?>
 
@@ -16,7 +12,6 @@
             <form action="<?php $_SERVER['PHP_SELF']?>" method="post">
                 <button name="enrolment">Enrolment Form</button>
                 <button name="payment">Payment Form</button> 
-                
             </form>
         </div>
     </div>

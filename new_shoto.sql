@@ -8,7 +8,7 @@ CREATE TABLE `Class` (
 CREATE TABLE `Group` (
   `GroupType` varchar(7),
   `GroupFee` int(3),
-  `SessionTime` date(11),
+  `SessionTime` time,
   PRIMARY KEY (`GroupType`)
 );
 
@@ -76,7 +76,7 @@ CREATE TABLE `SupplierOrder` (
 );
 
 CREATE TABLE `Member` (
-  `MemberID` int(11),
+  `MemberID` int(11) AUTO_INCREMENT,
   `MemRegDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `FirstName` varchar(30),
   `LastName` varchar(30),
@@ -100,7 +100,7 @@ CREATE TABLE `Consultation` (
   `StaffID` int(11),
   `Student` int(11),
   `ConsulDate` timestamp,
-  `ConsulTime` timestamp,
+  `ConsulTime` time,
   PRIMARY KEY (`ConsulID`),
   KEY `FK` (`StaffID`, `Student`)
 );

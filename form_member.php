@@ -6,12 +6,12 @@
     <div>
         <!-- customer -->
         <label for="firstName">First Name</label>
-        <input type="text" name="firstName" required>
+        <input type="text" name="firstName" >
     </div>
     <div>
         <!-- customer -->
         <label for="lastName">Last Name</label>
-        <input type="text" name="lastName" required>
+        <input type="text" name="lastName" >
     </div>
     <div>
         <label for="contactNo">Contact No</label>
@@ -45,7 +45,7 @@
         $contactNo = mysqli_real_escape_string($conn, $_POST['contactNo']);
         $parentNo = mysqli_real_escape_string($conn, $_POST['parentNo']);
         $query = "INSERT INTO member(FirstName, LastName, ParFirstName, ParLastName, ParContact, ContactNo) VALUES ('$firstName', '$lastName', '$parentFirst', '$parentLast', '$parentNo', '$contactNo');";
-
+        
         mysqli_query($conn, $query);
     }
 
