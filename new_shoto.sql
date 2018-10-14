@@ -1,132 +1,132 @@
 CREATE TABLE `Class` (
-  `Instructor` <type>,
-  `Group` <type>,
-  `ClassDay` <type>,
+  `Instructor` varchar(30),
+  `Group` varchar(30),
+  `ClassDay` varchar(30),
   KEY `CK` (`Instructor`, `Group`)
 );
 
 CREATE TABLE `Group` (
-  `GroupType` <type>,
-  `GroupFee` <type>,
-  `SessionTime` <type>,
+  `GroupType` int(11),
+  `GroupFee` int(11),
+  `SessionTime` int(11),
   PRIMARY KEY (`GroupType`)
 );
 
 CREATE TABLE `Invoice` (
-  `InvoiceID` <type>,
-  `PaymentID` <type>,
-  `InvoiceDate` <type>,
+  `InvoiceID` int(11),
+  `PaymentID` int(11),
+  `InvoiceDate` timestamp,
   PRIMARY KEY (`InvoiceID`),
   KEY `FK` (`PaymentID`)
 );
 
 CREATE TABLE `Product` (
-  `ProductID` <type>,
-  `ProductName` <type>,
-  `ProductBrand` <type>,
-  `ProductPrice` <type>,
+  `ProductID` int(11),
+  `ProductName` varchar(30),
+  `ProductBrand` varchar(30),
+  `ProductPrice` int(11),
   KEY `FK` (`ProductID`)
 );
 
 CREATE TABLE `Staff` (
-  `StaffID` <type>,
-  `FirstName` <type>,
-  `LastName` <type>,
-  `Position` <type>,
+  `StaffID` int(11),
+  `FirstName` varchar(30),
+  `LastName` varchar(30),
+  `Position` varchar(30),
   PRIMARY KEY (`StaffID`),
   KEY `FK` (`Position`)
 );
 
 CREATE TABLE `Order` (
-  `OrderID` <type>,
-  `StaffID` <type>,
-  `Date` <type>,
+  `OrderID` int(11),
+  `StaffID` int(11),
+  `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`OrderID`),
   KEY `FK` (`StaffID`)
 );
 
 CREATE TABLE `Position` (
-  `PositionTitle` <type>,
-  `PositionSalary` <type>,
+  `PositionTitle` varchar(30),
+  `PositionSalary` int(11),
   PRIMARY KEY (`PositionTitle`)
 );
 
 CREATE TABLE `Supplier` (
-  `SupplierName` <type>,
-  `SuppAddress` <type>,
-  `SuppSuburb` <type>,
+  `SupplierName` varchar(30),
+  `SuppAddress` varchar(30),
+  `SuppSuburb` varchar(30),
   PRIMARY KEY (`SupplierName`)
 );
 
 CREATE TABLE `Enrolment` (
-  `Student` <type>,
-  `Group` <type>,
+  `Student` int(11),
+  `Group` int(11),
   KEY `CK` (`Student`, `Group`)
 );
 
 CREATE TABLE `SupplierOrder` (
-  `OrderID` <type>,
-  `Supplier` <type>,
-  `ProductID` <type>,
-  `SupOrdQty` <type>,
-  `ShipAddress` <type>,
-  `ShipPostcode` <type>,
+  `OrderID` int(11),
+  `Supplier` varchar(30),
+  `ProductID` int(11),
+  `SupOrdQty` int(11),
+  `ShipAddress` varchar(30),
+  `ShipPostcode` varchar(30),
   KEY `CK` (`OrderID`, `Supplier`, `ProductID`),
   KEY `Key` (`ShipAddress`, `ShipPostcode`)
 );
 
 CREATE TABLE `Member` (
-  `MemberID` <type>,
-  `MemRegDate` <type>,
-  `FirstName` <type>,
-  `LastName` <type>,
-  `ParFirstName` <type>,
-  `ParLastName` <type>,
-  `ParContact` <type>,
-  `ContactNo` <type>,
-  `MemFee` <type>,
+  `MemberID` int(11),
+  `MemRegDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `FirstName` varchar(30),
+  `LastName` varchar(30),
+  `ParFirstName` varchar(30),
+  `ParLastName` varchar(30),
+  `ParContact` varchar(30),
+  `ContactNo` varchar(30),
+  `MemFee` int(11),
   PRIMARY KEY (`MemberID`)
 );
 
 CREATE TABLE `ProductOrder` (
-  `InvoiceID` <type>,
-  `ProductID` <type>,
-  `ProOrdQty` <type>,
+  `InvoiceID` int(11),
+  `ProductID` int(11),
+  `ProOrdQty` int(11),
   KEY `CK` (`InvoiceID`, `ProductID`)
 );
 
 CREATE TABLE `Consultation` (
-  `ConsulID` <type>,
-  `StaffID` <type>,
-  `Student` <type>,
-  `ConsulDate` <type>,
-  `ConsulTime` <type>,
+  `ConsulID` int(11),
+  `StaffID` int(11),
+  `Student` int(11),
+  `ConsulDate` timestamp,
+  `ConsulTime` timestamp,
   PRIMARY KEY (`ConsulID`),
   KEY `FK` (`StaffID`, `Student`)
 );
 
 CREATE TABLE `Grading` (
-  `GradingID` <type>,
-  `Instructor` <type>,
-  `Student` <type>,
-  `Grade` <type>,
-  `Belt` <type>,
+  `GradingID` int(11),
+  `Instructor` int(11),
+  `Student` int(11),
+  `Grade` int(11),
+  `Belt` varchar(10),
   PRIMARY KEY (`GradingID`),
   KEY `FK` (`Instructor`, `Student`)
 );
 
 CREATE TABLE `StaffAttendance` (
-  `AttendanceID` <type>,
-  `StaffID` <type>,
-  `Hours` <type>,
+  `AttendanceID` int(11),
+  `StaffID` int(11),
+  `Hours` int(11),
   PRIMARY KEY (`AttendanceID`),
   KEY `FK` (`StaffID`)
 );
 
 CREATE TABLE `Payment` (
-  `PaymentID` <type>,
-  `MemberID` <type>,
-  `PaymentAmt` <type>,
+  `PaymentID` int(11),
+  `MemberID` int(11),
+  `PaymentAmt` int(11),
   PRIMARY KEY (`PaymentID`),
   KEY `FK` (`MemberID`)
 );
