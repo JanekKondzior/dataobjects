@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2018 at 08:43 AM
+-- Generation Time: Oct 14, 2018 at 12:36 PM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Database: `shoto`
 --
+CREATE DATABASE IF NOT EXISTS `shoto` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
+USE `shoto`;
 
 -- --------------------------------------------------------
 
@@ -139,33 +141,26 @@ CREATE TABLE `member` (
 INSERT INTO `member` (`MemberID`, `MemRegDate`, `FirstName`, `LastName`, `ParFirstName`, `ParLastName`, `ParContact`, `ContactNo`, `MemFee`) VALUES
 (1, '2018-10-14 04:47:24', 'John', 'Doe', '', '', '', '', NULL),
 (3, '2018-10-14 04:47:51', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(4, '2018-10-14 04:51:07', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(5, '2018-10-14 04:51:53', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(6, '2018-10-14 04:51:59', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(7, '2018-10-14 04:58:05', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(8, '2018-10-14 05:00:05', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(9, '2018-10-14 05:02:01', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(10, '2018-10-14 05:02:16', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(11, '2018-10-14 05:02:21', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(12, '2018-10-14 05:04:17', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(13, '2018-10-14 05:06:35', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(14, '2018-10-14 05:10:52', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(15, '2018-10-14 05:11:13', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(16, '2018-10-14 05:11:18', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(17, '2018-10-14 05:11:41', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(18, '2018-10-14 05:11:54', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(19, '2018-10-14 05:15:12', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(20, '2018-10-14 05:19:50', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(21, '2018-10-14 05:20:19', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(22, '2018-10-14 05:20:28', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(23, '2018-10-14 05:20:34', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(24, '2018-10-14 05:22:29', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(25, '2018-10-14 05:22:38', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(26, '2018-10-14 05:23:15', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(27, '2018-10-14 05:24:41', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(28, '2018-10-14 05:25:01', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(29, '2018-10-14 05:25:09', 'Riccardo ', 'comp', '', '', '', '', NULL),
-(30, '2018-10-14 05:26:12', 'Riccardo ', 'comp', '', '', '', '', NULL);
+(20, '2018-10-14 10:31:58', 'Candace', 'Pexton', 'Haily', 'De La Haye', '994-975-9871', '700-271-6903', NULL),
+(21, '2018-10-14 10:31:58', 'Lorianne', 'Tort', 'Riannon', 'Penman', '644-446-7878', '815-831-3380', NULL),
+(22, '2018-10-14 10:31:58', 'Rania', 'Semper', 'Lorilee', 'Lackmann', '645-834-1369', '531-707-9044', NULL),
+(23, '2018-10-14 10:31:58', 'Bartel', 'Woodfin', 'Bunny', 'Haddock', '745-975-2902', '158-461-8705', NULL),
+(24, '2018-10-14 10:31:58', 'Henryetta', 'Manvelle', 'Ame', 'Gherardesci', '809-891-2623', '615-670-4741', NULL),
+(25, '2018-10-14 10:31:58', 'Karolina', 'McMennum', 'Geneva', 'Bill', '122-169-5774', '417-995-3814', NULL),
+(26, '2018-10-14 10:31:58', 'Thomasa', 'Omar', 'Trixy', 'Pie', '819-499-6256', '467-280-7134', NULL),
+(27, '2018-10-14 10:31:58', 'Katya', 'Kondratenko', 'Blaire', 'Kampshell', '137-965-7179', '797-748-3104', NULL),
+(28, '2018-10-14 10:31:58', 'April', 'Hainge', 'Bobinette', 'Siemens', '601-745-2968', '123-759-2369', NULL),
+(29, '2018-10-14 10:31:58', 'Allistir', 'Lummus', 'Gael', 'Wille', '592-896-6956', '727-840-0865', NULL),
+(30, '2018-10-14 10:31:58', 'Filberte', 'Woolger', 'Demetris', 'Sex', '707-764-9518', '567-767-4662', NULL),
+(31, '2018-10-14 10:31:58', 'Winne', 'Keynd', 'Inglis', 'Nelsen', '250-953-2353', '364-205-1177', NULL),
+(32, '2018-10-14 10:31:58', 'Hugo', 'Winmill', 'Giselbert', 'Hallatt', '588-467-1820', '780-763-0696', NULL),
+(33, '2018-10-14 10:31:58', 'Mellisa', 'Furlow', 'Kendall', 'Fowells', '214-623-9667', '857-542-5396', NULL),
+(34, '2018-10-14 10:31:58', 'Guntar', 'Dearness', 'Annmarie', 'Fawkes', '140-303-7250', '865-933-3782', NULL),
+(35, '2018-10-14 10:31:58', 'Hally', 'Wilmut', 'Chrysa', 'Camerello', '671-338-0973', '485-474-6184', NULL),
+(36, '2018-10-14 10:31:58', 'Adriano', 'Morphey', 'Sheilakathryn', 'Lerego', '199-319-8014', '330-282-0982', NULL),
+(37, '2018-10-14 10:31:58', 'Vivianne', 'O\'Lunny', 'Muffin', 'Goligher', '824-199-5765', '566-842-0519', NULL),
+(38, '2018-10-14 10:31:58', 'Reggie', 'McSperron', 'Tam', 'Davern', '754-773-2467', '942-844-4618', NULL),
+(39, '2018-10-14 10:31:58', 'Judas', 'Mellhuish', 'Rivkah', 'Ruusa', '345-760-4415', '230-473-1856', NULL);
 
 -- --------------------------------------------------------
 
@@ -431,7 +426,7 @@ ALTER TABLE `supplierorder`
 -- AUTO_INCREMENT for table `member`
 --
 ALTER TABLE `member`
-  MODIFY `MemberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `MemberID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=40;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
