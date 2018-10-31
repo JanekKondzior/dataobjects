@@ -1,6 +1,8 @@
 <?php
 require_once('conn.php');
 // List of fees query
+
+
 $query="SELECT * FROM `group`";
 $result=mysqli_query($conn, $query);
 $rowCount = mysqli_num_rows($result);
@@ -20,7 +22,7 @@ for($i=0;$i<$rowCount2;$i++){
 
 ?>
 
-
+<h2 id="enrollmentForm">Purchasing enrolement and/or products</h2>
 <form id="enrollmentForm" action="" method="post">
     <div>
       
@@ -42,7 +44,13 @@ foreach($feeList as $fee) :
 
      <div>
 
-
+    <div>
+        <p>Purchasing a product?</p>
+        <label for="no"></label>
+        <input type="radio" name="">
+    
+    </div>
+    
     <label for="Product">Product</label>
     <select name="product">
         <?php
