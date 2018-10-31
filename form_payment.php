@@ -45,6 +45,7 @@ foreach($feeList as $fee) :
 
     <label for="Product">Product</label>
     <select name="product">
+    <option value="0">0</option>
         <?php
         foreach($productList as $product) :
             
