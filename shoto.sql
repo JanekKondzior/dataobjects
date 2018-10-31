@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 14, 2018 at 12:36 PM
+-- Generation Time: Oct 31, 2018 at 06:14 AM
 -- Server version: 10.1.34-MariaDB
 -- PHP Version: 7.2.7
 
@@ -21,8 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `shoto`
 --
-CREATE DATABASE IF NOT EXISTS `shoto` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `shoto`;
 
 -- --------------------------------------------------------
 
@@ -57,8 +55,8 @@ CREATE TABLE `consultation` (
 --
 
 CREATE TABLE `enrolment` (
-  `Student` int(11) DEFAULT NULL,
-  `Group` varchar(7) DEFAULT NULL
+  `Student` int(11) NOT NULL,
+  `Group` set('Tigers','Juniors','Seniors') NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -92,9 +90,9 @@ CREATE TABLE `group` (
 --
 
 INSERT INTO `group` (`GroupType`, `GroupFee`, `SessionTime`) VALUES
-('juniors', 60, '18:00:00'),
-('seniors', 80, '19:00:00'),
-('tigers', 50, '13:00:00');
+('Juniors', 200, '18:30:00'),
+('Seniors', 240, '19:30:00'),
+('Tigers', 150, '18:00:00');
 
 -- --------------------------------------------------------
 

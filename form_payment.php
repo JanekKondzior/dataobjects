@@ -36,7 +36,7 @@ for($i=0;$i<$rowCount2;$i++){
 <?php
 foreach($feeList as $fee) :
     
-        echo "<option value=".$fee['GroupFee'].">".$fee['GroupFee']."</option>";
+        echo "<option value=".$fee['GroupFee'].">".$fee['GroupFee']."-".$fee['GroupType']."</option>";
         
     endforeach;
 ?>
@@ -53,6 +53,7 @@ foreach($feeList as $fee) :
     
     <label for="Product">Product</label>
     <select name="product">
+    <option value="0">0</option>
         <?php
         foreach($productList as $product) :
             
@@ -89,7 +90,15 @@ foreach($feeList as $fee) :
         $fee = mysqli_real_escape_string($conn, $_POST['fee']);
         $product = mysqli_real_escape_string($conn, $_POST['product']);
         $qty = mysqli_real_escape_string($conn, $_POST['qty']);
-        $query = "INSERT INTO member(FirstName, LastName, ParFirstName, ParLastName, ParContact, ContactNo) VALUES ('$firstName', '$lastName', '$parentFirst', '$parentLast', '$parentNo', '$contactNo');";
+
+        if($fee!=0){
+            $q1="thefirstquery";
+        }
+        if($product!=0){
+            $q2="secondquery";
+        }
+
+       // $query = "INSERT INTO member(FirstName, LastName, ParFirstName, ParLastName, ParContact, ContactNo) VALUES ('$firstName', '$lastName', '$parentFirst', '$parentLast', '$parentNo', '$contactNo');";
 
 
 
